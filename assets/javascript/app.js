@@ -27,6 +27,8 @@ var answers = [
     question6Answers,
     question7Answers,
     question8Answers]
+
+var count = 0;
 //Screen loads with Title, instructions, and start button
 //When start button is clicked,
 //button disappears
@@ -50,6 +52,10 @@ var answers = [
 //Return to startScreen
 console.log(answers)
 
+function gameOver() {
+    console.log("GAME OVER")
+}
+
 function askQuestion(question, answerArray) {
     $("#question1").html(question);
     $("#answer_a").html(answerArray[0]);
@@ -59,27 +65,36 @@ function askQuestion(question, answerArray) {
     console.log(question)
     console.log(answerArray)
 }
+
+function nextQuestion() {
+    count++;
+    console.log("Next Question: ", count)
+    //this is where the you're right/wrong/gif of correct answer goes I THINK
+    if (count == questions.length) {
+        gameOver();
+    }
+}
+
 function timesUp() {
     console.log("Time's Up!")
 }
+
 function startTimer() {
     console.log("timer started");
     setTimeout(timesUp, 10000);
-
 }
 
-$("#start-btn").on("click", function (event) {
+
+$("#start-btn").on("click", function(event) {
     console.log("START GAME");
     $("#start-screen").hide();
-    //make a for loop for the 8 questions
-    for (var i = 0; i < questions.length; i++) {
-        askQuestion(questions[i], answers[i]);
-        startTimer();
-    }
-    
-    
-    
-    
+        askQuestion(questions[count], answers[count]);
+        startTimer(); 
 });
+
+$(".answer-btn").on("click", function(event){
+    nextQuestion();
+    askQuestion(questions[count], answers[count]);
+})
 
 
