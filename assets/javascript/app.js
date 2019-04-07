@@ -20,6 +20,8 @@
 //When start over button is clicked, 
     //Return to startScreen
 
-$("start-btn").on("click", function(event){
+$("#start-btn").on("click", function(event){
+console.log("START GAME");
+$("#start-screen").hide();
 
 });
