@@ -28,7 +28,12 @@ var answers = [
     question7Answers,
     question8Answers]
 
-var count = 0;
+var questionCount = 0;
+
+var time = 10;
+var intervalID;
+var clockRunning = false;
+
 //Screen loads with Title, instructions, and start button
 //When start button is clicked,
 //button disappears
@@ -50,10 +55,39 @@ var count = 0;
 //Start Over button
 //When start over button is clicked, 
 //Return to startScreen
-console.log(answers)
+function timeConverter(t) {
+
+    //  Takes the current time in seconds and convert it to minutes and seconds (mm:ss).
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+
+    if (minutes === 0) {
+        minutes = "00";
+    }
+
+    else if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    return minutes + ":" + seconds;
+}
+
+function timer() {
+    time--;
+    var currentTime = timeConverter(time);
+    console.log("CURRENT TIME: ", currentTime)
+    $("#time-remaining").text(currentTime)
+}
 
 function gameOver() {
     console.log("GAME OVER")
+}
+function timesUp() {
+    clockRunning = false;
 }
 
 function askQuestion(question, answerArray) {
@@ -64,37 +98,43 @@ function askQuestion(question, answerArray) {
     $("#answer_d").html(answerArray[3]);
     console.log(question)
     console.log(answerArray)
+    startTimer();
+    console.log(time);
+
 }
 
 function nextQuestion() {
-    count++;
-    console.log("Next Question: ", count)
+    time = 10;
+    questionCount++;
+    console.log("Next Question: ", questionCount)
+
     //this is where the you're right/wrong/gif of correct answer goes I THINK
-    if (count == questions.length) {
+    if (questionCount == questions.length) {
         gameOver();
     }
 }
 
-function timesUp() {
-    console.log("Time's Up!")
-}
 
 function startTimer() {
+    $("#time-remaining").text("00:10")
     console.log("timer started");
-    setTimeout(timesUp, 10000);
+    if (!clockRunning) {
+        clockRunning = true;
+        intervalID = setInterval(timer, 1000)
+    }
+    
 }
 
 
-$("#start-btn").on("click", function(event) {
+$("#start-btn").on("click", function (event) {
     console.log("START GAME");
     $("#start-screen").hide();
-        askQuestion(questions[count], answers[count]);
-        startTimer(); 
+    askQuestion(questions[questionCount], answers[questionCount]);
 });
 
-$(".answer-btn").on("click", function(event){
+$(".answer-btn").on("click", function (event) {
     nextQuestion();
-    askQuestion(questions[count], answers[count]);
+    askQuestion(questions[questionCount], answers[questionCount]);
 })
 
 
