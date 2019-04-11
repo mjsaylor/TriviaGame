@@ -1,32 +1,47 @@
-var questions = [
-    "Who did this first lip sync?",
-    "Who did this second lip sync?",
-    "Is this the third question?",
-    "Who is this fourth question for?",
-    "Why isn't this fifth question last?",
-    "Hey, a sixth question!",
-    "Am I doing this right? Seventh?",
-    "Eight is the last question?",
+var quizzes = [
+    {
+        question: "Which Rupaul's Drag Race All Star is famously 'Here to make it clear'?",
+        possibleAnswers: ["Alaska 5000", "Jinkx Monsoon", "Detox", "Roxxxy Andrews"],
+        correctAnswerIndex: 4,
+        userCorrect: false
+    }, {
+        question: "Which queens simultaneously landed splits during Pink's 'Stupid Girl'?",
+        possibleAnswers: ["Katya & Kennedy Davenport", "Joslyn Fox & LaGanja Estranja", "Eureka O'Hara & Kalorie Karbdashian", "Gia Gunn & Alyssa Edwards"],
+        correctAnswerIndex: 2,
+        userCorrect: false
+    }, {
+        question: "Is this the third question?",
+        possibleAnswers: ["This QueenA3", "This QueenB3", "This QueenC3", "This QueenD3"],
+        correctAnswerIndex: 4,
+        userCorrect: false
+    }, {
+        question: "Who is this fourth question for?",
+        possibleAnswers: ["This QueenA4", "This QueenB4", "This QueenC4", "This QueenD4"],
+        correctAnswerIndex: 3,
+        userCorrect: false
+    }, {
+        question: "Why isn't this fifth question last?",
+        possibleAnswers: ["This QueenA5", "This QueenB5", "This QueenC5", "This QueenD5"],
+        correctAnswerIndex: 1,
+        userCorrect: false
+    }, {
+        question: "Hey, a sixth question!",
+        possibleAnswers: ["This QueenA6", "This QueenB6", "This QueenC6", "This QueenD6"],
+        correctAnswerIndex: 1,
+        userCorrect: false
+    }, {
+        question: "Am I doing this right? Seventh?",
+        possibleAnswers: ["This QueenA7", "This QueenB7", "This QueenC7", "This QueenD7"],
+        correctAnswerIndex: 2,
+        userCorrect: false
+    }, {
+        question: "Eight is the last question?",
+        possibleAnswers: ["This QueenA8", "This QueenB8", "This QueenC8", "This QueenD8"],
+        correctAnswerIndex: 3,
+        userCorrect: false
+    }
 ]
 
-var question1Answers = ["This QueenA1", "This QueenB1", "This QueenC1", "This QueenD1"]
-var question2Answers = ["This QueenA2", "This QueenB2", "This QueenC2", "This QueenD2"]
-var question3Answers = ["This QueenA3", "This QueenB3", "This QueenC3", "This QueenD3"]
-var question4Answers = ["This QueenA4", "This QueenB4", "This QueenC4", "This QueenD4"]
-var question5Answers = ["This QueenA5", "This QueenB5", "This QueenC5", "This QueenD5"]
-var question6Answers = ["This QueenA6", "This QueenB6", "This QueenC6", "This QueenD6"]
-var question7Answers = ["This QueenA7", "This QueenB7", "This QueenC7", "This QueenD7"]
-var question8Answers = ["This QueenA8", "This QueenB8", "This QueenC8", "This QueenD8"]
-
-var answers = [
-    question1Answers,
-    question2Answers,
-    question3Answers,
-    question4Answers,
-    question5Answers,
-    question6Answers,
-    question7Answers,
-    question8Answers]
 
 var questionCount = 0;
 
@@ -90,14 +105,15 @@ function timesUp() {
     clockRunning = false;
 }
 
-function askQuestion(question, answerArray) {
-    $("#question1").html(question);
-    $("#answer_a").html(answerArray[0]);
-    $("#answer_b").html(answerArray[1]);
-    $("#answer_c").html(answerArray[2]);
-    $("#answer_d").html(answerArray[3]);
-    console.log(question)
-    console.log(answerArray)
+function askQuestion() {
+    var currentQuiz = quizzes[questionCount]
+    console.log(currentQuiz)
+
+    $("#question1").html(currentQuiz.question);
+    $("#answer_a").html(currentQuiz.possibleAnswers[0]);
+    $("#answer_b").html(currentQuiz.possibleAnswers[1]);
+    $("#answer_c").html(currentQuiz.possibleAnswers[2]);
+    $("#answer_d").html(currentQuiz.possibleAnswers[3]);
     startTimer();
     console.log(time);
 
@@ -107,9 +123,9 @@ function nextQuestion() {
     time = 10;
     questionCount++;
     console.log("Next Question: ", questionCount)
-
+    askQuestion();
     //this is where the you're right/wrong/gif of correct answer goes I THINK
-    if (questionCount == questions.length) {
+    if (questionCount == quizzes.length) {
         gameOver();
     }
 }
@@ -122,19 +138,18 @@ function startTimer() {
         clockRunning = true;
         intervalID = setInterval(timer, 1000)
     }
-    
+
 }
 
 
 $("#start-btn").on("click", function (event) {
     console.log("START GAME");
     $("#start-screen").hide();
-    askQuestion(questions[questionCount], answers[questionCount]);
+    // var currentQuiz = quizzes[questionCount]
+    // askQuestion(currentQuiz.question, currentQuiz.possibleAnswers)
+    askQuestion();
 });
 
 $(".answer-btn").on("click", function (event) {
     nextQuestion();
-    askQuestion(questions[questionCount], answers[questionCount]);
 })
-
-
