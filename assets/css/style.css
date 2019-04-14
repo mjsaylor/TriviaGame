@@ -1,22 +1,54 @@
+/* font-family: 'Arima Madurai', cursive;
+font-family: 'Chicle', cursive;
+font-family: 'Kavoon', cursive;
+font-family: 'Baloo Tammudu', cursive;
+font-family: 'Purple Purse', cursive;
+font-family: 'Modak', cursive;
+font-family: 'Francois One', sans-serif; */
+
+
+
 body {
-    background-color: #A491D3;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(-30deg, #f01176, #0848f7)
 }
 header {
     width: 100%;
     text-align: center;
-    background-color: #87F5FB;
+}
+
+.logo {
+    width: auto;
+    height: 300px;
+}
+
+img {
+    max-height: 100%;
 }
 
 h1 {
-    color: #2F131E;
-    font-size: 60px;
+    font-family: "The Brandy";
+    color: #FFFFFF;
+    text-shadow: rgba(0, 0, 0, 0.349) 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+    font-size: 90px;
+    text-align: center;
+    margin-top: -95px;
 }
 
 .main-content {
-    background-color: #E1CA96;
-    width: 960px;
+    background-color: black;
+    color: white;
+    width: 80%;
     margin: 30px auto;
     padding: 20px;
+    font-family: 'Francois One', sans-serif;
+    font-size: 30px;
+    font-style: bold;
+    text-align: center;
+    border-radius: 8px;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 0 5px;
 }
 
 .btn {
@@ -27,4 +59,27 @@ h1 {
     background-color: #CEC3C1;
     margin: 30px auto;
     text-align: center;
+    font-family: 'Francois One', sans-serif;
+}
+
+.timer {
+    padding: 20px;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 5rem;
+    align-content: center;
+}
+.question {
+    margin: 10px auto;
+}
+.answer-btn {
+    font-size: 30px;
+    margin: 10px auto;
+    width: 30%;
+    text-align: center;
+    font-family: 'Francois One', sans-serif;
+    background-color: #f01176;
 }

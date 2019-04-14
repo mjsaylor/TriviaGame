@@ -60,18 +60,20 @@ var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
 
-var time = 10;
+var time = 20;
 var intervalID;
 // var clockRunning = false;
 var timeoutID;
 
 function renderApp() {
+    console.log(`intervalID ${intervalID}`)
     var currentQuiz = quizzes[currentQuizIndex]
 
     if (gameState == possibleGameStates.start) {
         //show start screen
         $("#gameplay").hide();
         $("#gameover").hide();
+        $("#show-the-answer").hide();
         $("#start-screen").show();
     }
     if (gameState == possibleGameStates.gameOver) {
@@ -112,7 +114,7 @@ function renderApp() {
     console.log(gameState)
     console.log(currentQuizIndex)
     console.log("CURRENT TIME: ", time)
-    $("#time-remaining").text(time)
+    $("#time-remaining").text(`${time} Seconds Remain!`)
 }
 
 function setUpGame() {
@@ -126,7 +128,7 @@ function setUpGame() {
 
 function askQuestion() {
     gameState = possibleGameStates.askQuestion;
-    time = 10;
+    time = 20;
     startTimer();
     renderApp();
 }
@@ -199,3 +201,5 @@ $("#play-again").on("click", setUpGame)
 
 setUpGame();
 
+// gameState = possibleGameStates.askQuestion;
+// renderApp();

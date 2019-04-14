@@ -2,18 +2,28 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    @font-face {
+    font-family: "The Brandy";
+    src: url("./assets/images/TheBrandy.woff");
+}</style>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Baloo+Tammudu|Chicle|Kavoon|Modak|Purple+Purse" rel="stylesheet">
+   
     <title>Trivia Game</title>
 </head>
 
 <body>
     <header>
-        <h1>Rupaul's Drag Race Trivia</h1>
+        <div class="logo"><img src="assets/images/logo.png"></div>
+        <h1>Trivia!</h1>
     </header>
     <div class="game-container">
         <div class="main-content" id="start-screen">
@@ -33,12 +43,13 @@
                 <button class="answer-btn" id="answer_d" data-index="3"></button>
             </div>
         </div>
-        <div class="main-content" id="show-the-answer"></div>
+        <div class="main-content" id="show-the-answer"><span class="gif"></span></div>
         <div class="main-content" id="gameover">
             <div class="stats" id="correct"></div>
             <div class="stats" id="incorrect"></div>
             <div class="stats" id="unanswered"></div>
-            <button class = "play-again-btn" id="play-again"></button>
+            <p>Would you like to play again?</p>
+            <button class = "play-again-btn" id="play-again">Yes, Gawd!</button>
         </div>
 
     </div>
