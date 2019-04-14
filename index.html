@@ -21,20 +21,25 @@
                 <p>How well do you know the legendary lip syncs from Rupaul's Drag Race?</p>
                 <p>Put your knowledge to the test with this trivia game.</p>
             </div>
-            <div class="btn" id="start-btn">Don't F*ck It Up!</div>
+            <button class="btn" id="start-btn">Don't F*ck It Up!</button>
         </div>
         <div class="main-content" id="gameplay">
             <div class="timer" id="time-remaining"></div>
             <div class="question-container" id="quiz-display">
                 <div class="question" id="question1"></div>
-                <div class="answer-btn" id="answer_a"></div>
-                <div class="answer-btn" id="answer_b"></div>
-                <div class="answer-btn" id="answer_c"></div>
-                <div class="answer-btn" id="answer_d"></div>
+                <button class="answer-btn" id="answer_a" data-index="0"></button>
+                <button class="answer-btn" id="answer_b" data-index="1"></button>
+                <button class="answer-btn" id="answer_c" data-index="2"></button>
+                <button class="answer-btn" id="answer_d" data-index="3"></button>
             </div>
         </div>
         <div class="main-content" id="show-the-answer"></div>
-        <div class="main-content" id="gameover"></div>
+        <div class="main-content" id="gameover">
+            <div class="stats" id="correct"></div>
+            <div class="stats" id="incorrect"></div>
+            <div class="stats" id="unanswered"></div>
+            <button class = "play-again-btn" id="play-again"></button>
+        </div>
 
     </div>
 
