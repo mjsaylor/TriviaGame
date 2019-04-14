@@ -9,8 +9,7 @@ font-family: 'Francois One', sans-serif; */
 
 
 body {
-    width: 100vw;
-    height: 100vh;
+    height: 150vh;
     background-image: linear-gradient(-30deg, #f01176, #0848f7)
 }
 header {
@@ -25,6 +24,7 @@ header {
 
 img {
     max-height: 100%;
+    max-width: 100%;
 }
 
 h1 {
@@ -39,7 +39,7 @@ h1 {
 .main-content {
     background-color: black;
     color: white;
-    width: 80%;
+    width: 85%;
     margin: 30px auto;
     padding: 20px;
     font-family: 'Francois One', sans-serif;
@@ -47,7 +47,7 @@ h1 {
     font-style: bold;
     text-align: center;
     border-radius: 8px;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     text-shadow: 0 0 0 5px;
 }
 
@@ -82,4 +82,13 @@ h1 {
     text-align: center;
     font-family: 'Francois One', sans-serif;
     background-color: #f01176;
+}
+
+.answer-btn:hover {
+    background-color: #aa2cdb;
+}
+
+.gif {
+    margin: 24px auto;
+    width: 50%;
 }
