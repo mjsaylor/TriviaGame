@@ -76,7 +76,7 @@ var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
 
-var time = 20;
+var time;
 var intervalID;
 // var clockRunning = false;
 var timeoutID;
@@ -226,6 +226,3 @@ $("#play-again").on("click", setUpGame)
 //main
 
 setUpGame();
-
-// gameState = possibleGameStates.askQuestion;
-// renderApp();

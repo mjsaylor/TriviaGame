@@ -62,6 +62,10 @@ h1 {
     font-family: 'Francois One', sans-serif;
 }
 
+.btn:hover {
+    background-color: #f01176;
+}
+
 .timer {
     padding: 20px;
 }
@@ -91,4 +95,9 @@ h1 {
 .gif {
     margin: 24px auto;
     width: 50%;
+}
+
+.endphoto-wrapper {
+    width: 80%;
+    margin: 24px auto;
 }
